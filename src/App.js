@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Auth from './pages/Auth';
+import React from 'react';
+import Contacts from './pages/Contacts';
+import { Switch,Route } from "react-router-dom";
+import GetContact from './pages/GetContact';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Navbar/>
+    <Switch>
+      <Route path="/auth">
+        <Auth />
+      </Route>
+      <Route path="/contacts">
+        <Contacts />
+      </Route>
+      <Route path="/get-contact">
+        <GetContact />
+      </Route>
+      <Route path="/">
+        <Auth />
+      </Route>
+    </Switch>
     </div>
   );
 }
 
 export default App;
+
